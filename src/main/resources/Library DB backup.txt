@@ -1,0 +1,15 @@
+INSERT INTO public.authors(books, name, surname) VALUES ('Чорний ворон', 'Василь', 'Шкляр');
+INSERT INTO public.authors(books, name, surname) VALUES ('Маруся', 'Василь', 'Шкляр');
+INSERT INTO public.authors(books, name, surname) VALUES ('Троща', 'Василь', 'Шкляр');
+INSERT INTO public.authors(books, name, surname) VALUES ('Девушка в поезде', 'Пола', 'Хокинс');
+INSERT INTO public.authors(books, name, surname) VALUES ('Тайная история', 'Донна', 'Тартт');
+INSERT INTO public.authors(books, name, surname) VALUES ('Бот', 'Макс', 'Кідрук');
+INSERT INTO public.authors(books, name, surname) VALUES ('Жорстоке небо', 'Макс', 'Кідрук');
+
+INSERT INTO public.books(author, genre, publication, title) VALUES ('В. Шкляр', 'роман', 2009, 'Чорний ворон');
+INSERT INTO public.books(author, genre, publication, title) VALUES ('В. Шкляр', 'роман', 2014, 'Маруся');
+INSERT INTO public.books(author, genre, publication, title) VALUES ('В. Шкляр', 'роман', 2017, 'Троща');
+INSERT INTO public.books(author, genre, publication, title) VALUES ('П. Хокинс', 'роман', 2015, 'Девушка в поезде');
+INSERT INTO public.books(author, genre, publication, title) VALUES ('Д. Тартт', 'роман', 2008, 'Тайная история');
+INSERT INTO public.books(author, genre, publication, title) VALUES ('М. Кідрук', 'роман', 2012, 'Бот');
+INSERT INTO public.books(author, genre, publication, title) VALUES ('М. Кідрук', 'роман', 2014, 'Жорстоке небо');
