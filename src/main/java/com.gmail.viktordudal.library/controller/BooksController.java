@@ -24,7 +24,7 @@ public class BooksController {
 
     @GetMapping(value = "/all")
     public List<Book> getAll() {
-        logger.warn("Test controller!");
+        logger.warn("Test Books controller!");
         return bookService.findAll();
     }
 
@@ -35,7 +35,7 @@ public class BooksController {
 
     @PostMapping(value = "/create")
     public Book create(@RequestBody Book book) {
-        return bookService.save(book);
+        return bookService.create(book);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -44,7 +44,7 @@ public class BooksController {
     }
 
     @GetMapping(value = "/byId/{bookId}")
-    public Book getBookByName(@PathVariable("bookId") Long bookId) {
+    public Book getBookById(@PathVariable("bookId") Long bookId) {
         return bookService.findById(bookId).orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + bookId));
     }
 }

@@ -8,7 +8,7 @@ public interface BaseDao<T, PK extends Serializable> {
 
     Optional<T> findById(PK pk);
 
-    T save(T object);
+    T create(T object);
 
     T update(T object);
 
