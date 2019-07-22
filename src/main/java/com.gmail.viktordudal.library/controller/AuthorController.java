@@ -4,6 +4,7 @@ import com.gmail.viktordudal.library.exception.ResourceNotFoundException;
 import com.gmail.viktordudal.library.model.Author;
 import com.gmail.viktordudal.library.service.AuthorService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class AuthorController {
 
     private final AuthorService authorService;
 
+    @Autowired
     public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
     }
