@@ -3,28 +3,24 @@ package com.gmail.viktordudal.library.controller;
 import com.gmail.viktordudal.library.exception.ResourceNotFoundException;
 import com.gmail.viktordudal.library.model.Author;
 import com.gmail.viktordudal.library.service.AuthorService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/authors")
-public class AuthorsController {
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class AuthorController {
 
     private final AuthorService authorService;
 
-
-    public AuthorsController(AuthorService authorService) {
+    public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
     }
 
     @GetMapping(value = "/all")
     public List<Author> getAll() {
-        logger.warn("Test Author controller!");
         return authorService.findAll();
     }
 
