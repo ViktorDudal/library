@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseDao<T, PK extends Serializable> {
+public interface BaseDao<T, K extends Serializable> {
 
-    Optional<T> findById(PK pk);
+    Optional<T> findById(K k);
 
     T create(T object);
 
@@ -14,7 +14,7 @@ public interface BaseDao<T, PK extends Serializable> {
 
     void delete(T object);
 
-    void deleteById(PK pk);
+    void deleteById(K k);
 
     List<T> findAll();
 

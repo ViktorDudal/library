@@ -2,7 +2,6 @@ package com.gmail.viktordudal.library.dao.impl;
 
 import com.gmail.viktordudal.library.dao.BaseDao;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public abstract class AbstractDao<T, PK extends Serializable> implements BaseDao<T, PK> {
+public abstract class AbstractDao<T, K extends Serializable> implements BaseDao<T, K> {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -29,9 +28,9 @@ public abstract class AbstractDao<T, PK extends Serializable> implements BaseDao
     protected SessionFactory sessionFactory;
 
     @Override
-    public Optional<T> findById(PK pk) {
-        if (pk == null) return Optional.empty();
-        T entity = sessionFactory.getCurrentSession().get(clazz, pk);
+    public Optional<T> findById(K k) {
+        if (k == null) return Optional.empty();
+        T entity = sessionFactory.getCurrentSession().get(clazz, k);
         return Optional.ofNullable(entity);
     }
 
@@ -50,8 +49,8 @@ public abstract class AbstractDao<T, PK extends Serializable> implements BaseDao
     }
 
     @Override
-    public void deleteById(PK pk) {
-        T entity = sessionFactory.getCurrentSession().get(clazz, pk);
+    public void deleteById(K k) {
+        T entity = sessionFactory.getCurrentSession().get(clazz, k);
         if (entity != null) {
             delete(entity);
         }
