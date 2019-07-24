@@ -20,12 +20,12 @@ public class Author {
     @Column(name = "id")
     private Long authorId;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 25)
     private String name;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 25)
     private String surname;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 150)
     private String books;
 }

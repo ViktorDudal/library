@@ -21,13 +21,13 @@ public class Book implements Serializable {
     @Column(name = "id")
     private Long bookId;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 150)
     private String title;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 25)
     private String author;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 25)
     private String genre;
 
     @Column(name = "publication", nullable = false, length = 4)
