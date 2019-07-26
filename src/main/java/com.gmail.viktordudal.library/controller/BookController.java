@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -27,12 +28,12 @@ public class BookController {
     }
 
     @PutMapping(value = "/update")
-    public Book update(@RequestBody Book book) {
+    public Book update(@Valid @RequestBody Book book) {
         return bookService.update(book);
     }
 
     @PostMapping(value = "/create")
-    public Book create(@RequestBody Book book) {
+    public Book create(@Valid @RequestBody Book book) {
         return bookService.create(book);
     }
 

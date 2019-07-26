@@ -64,11 +64,6 @@ public abstract class AbstractDao<T, K extends Serializable> implements BaseDao<
     @Override
     @SuppressWarnings("unchecked")
     public List<T> findAll() {
-        logger.warn("Logger work!");
         return (List<T>) sessionFactory.getCurrentSession().createQuery("from " + clazz.getName()).list();
     }
-
-//    protected Query createNamedQuery(String query) {
-//        return sessionFactory.getCurrentSession().createNamedQuery(query);
-//    }
 }
