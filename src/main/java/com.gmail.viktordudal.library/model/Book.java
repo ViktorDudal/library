@@ -1,5 +1,6 @@
 package com.gmail.viktordudal.library.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "book_id")
     private Long bookId;
 
     @Column(nullable = false, length = 150)
@@ -49,4 +50,9 @@ public class Book implements Serializable {
     @Column(name = "publication", nullable = false, length = 4)
     @NotNull(message = "Publication date must be not null")
     private int publicationDate;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author authorNikName;
 }

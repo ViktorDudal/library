@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @Builder
@@ -21,7 +22,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "author_id")
     private Long authorId;
 
     @Column(nullable = false, length = 25)
@@ -38,10 +39,6 @@ public class Author {
     @Pattern(regexp = "^[A-Za-z0-9]{2,25}$")
     private String surname;
 
-    @Column(nullable = false, length = 150)
-    @NotNull(message = "Title must be not null")
-    @NotBlank(message = "Title must be not blank")
-    @Size(min = 2, max = 150, message = "Title length is incorrect")
-    @Pattern(regexp = "^[A-Za-z0-9? A-Za-z0-9]{2,150}$")
-    private String books;
+    @OneToMany(mappedBy = "authorNikName", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Book> books;
 }
